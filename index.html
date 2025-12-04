@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Love ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- MUSIC BUTTON -->
+    <button id="musicBtn" class="music-btn">🎵 PLAY MUSIC KITA INI SAYANG ‼️</button>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- PAGE 1 -->
+    <div id="page1" class="page active">
+        <h1 class="title">BABEEE WOULD UUU COME BANDUNGG IN JANN 2026 ,
+             I MISS MYY BOCIILL ❤️</h1>
+
+        <img src="IMAJE/PLISDONGBABE.jpeg" class="main-photo">
+
+        <p class="desc">KAMUU BAGIKUU ITUU</p>
+
+        <!-- Reasons Slider -->
+        <div class="reasons-box">
+            <p id="reasonText">KAMUU SELALUU BIKIN SEMUANYA TERASA NYAMAN! ❤️</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn-row">
+            <img id="yes" src="IMAJE/GAS OTWW.jpeg" class="btn-img yes-btn">
+            <img id="no" src="IMAJE/TDKMENGGUDA.jpeg" class="btn-img no-btn">
+        </div>
+
+        <button id="albumBtn" class="album-button">APAAAYAAA INI ?! (📸)</button>
+    </div>
+
+
+    <!-- PAGE 2 -->
+    <div id="page2" class="page">
+        <h1 class="love-title">YEAAAYYY SEE UU IN BANDUNGG SAYANG JANUARII</h1>
+        <p class="love-text">CANT WAITTT U HEREE SAYAANG JANJII YAAH !!</p>
+
+        <div class="gift-box">
+            <img src="IMAJE/gifdddt.jpg" id="giftImg">
+            <p> KLIKK HADIAH DIATAAS COBAA LOVEEE </p>
+        </div>
+    </div>
+
+
+    <!-- PAGE 3 – ALBUM 6 FOTO -->
+    <div id="page3" class="page">
+        <h1 class="title">A Collection Of USS !! 💖</h1>
+
+        <div class="album-grid">
+
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front"><img src="IMAJE/VIDCALL.jpeg"></div>
+                    <div class="card-back">FIRST TIME I SAWW UR LUCU FACE HIHI</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front"><img src="IMAJE/NGETWEETCIL.jpeg"></div>
+                    <div class="card-back">HAHAHAHHA INII PHASE THAT I KECINTAAN BGTT PAMER KE TWEET TERUS</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front"><img src="IMAJE/MEETCICI.jpeg"></div>
+                    <div class="card-back">MY BEST FEELIING EVERR KETEMU KAMUU</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front"><img src="IMAJE/BUNGAA.jpeg"></div>
+                    <div class="card-back">BAHKAAN DI TOKO-TOKO BUNGAA TETAP KAMUU YANG TERCANTII</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front"><img src="IMAJE/BOCILPOTOBOX.jpeg"></div>
+                    <div class="card-back">LOVEEEEUUUU</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front"><img src="IMAJE/BROOMM.jpeg"></div>
+                    <div class="card-back">SELALUU MAUU KELILING NAIK MOTOR DI BDG LAGI WITH UU</div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="back-button" onclick="goToPage(1)">PULAANG ANAK KECIL</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+<script>function goToPage(n) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(`page${n}`).classList.add("active");
+}
+
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const albumBtn = document.getElementById("albumBtn");
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+// MUSIC BUTTON
+musicBtn.addEventListener("click", () => {
+    if (music.paused) {
+        music.play();
+        musicBtn.textContent = "⏸ Pause";
+    } else {
+        music.pause();
+        musicBtn.textContent = "🎵 PLAY MUSIC KITA INI SAYANG ‼️";
+    }
+});
+
+// YES BUTTON → grow + heart rain → go to page 2
+let size = 1;
+yesBtn.addEventListener("click", () => {
+    size += 0.3;
+    yesBtn.style.transform = `scale(${size})`;
+
+    makeHearts();
+
+    if (size > 2.2) {
+        goToPage(2);
+    }
+});
+
+// NO BUTTON → runaway
+noBtn.addEventListener("mouseover", () => {
+    noBtn.style.position = "absolute";
+    noBtn.style.left = Math.random() * 80 + "%";
+    noBtn.style.top = Math.random() * 80 + "%";
+});
+
+// ALBUM BUTTON
+albumBtn.addEventListener("click", () => goToPage(3));
+
+// GIFT BOX → redirect to Spotify
+document.getElementById("giftImg").addEventListener("click", () => {
+    window.location.href = "https://open.spotify.com/playlist/1mdt2XB2xhq8SRKMoUu3ql?si=3b1f388338b84e45";
+});
+
+// REASONS SLIDER
+const reasons = [
+    "KAMUU SELALUU BIKIN SEMUANYA TERASA NYAMAN! ❤️",
+    "SENYUMANMUU TAWAMU ITU SEGALANYAA",
+    "SUPPORTMUUU MENGGERAKKANKU 💕",
+    "KAMUU RUMAHKU, TEMPAT TERNYAMANKUU 💗",
+    "MY LOVE FOR CICII GETS BIGGER DAY DY DAYY 💞",
+    "KAMUU DUNIAKUU HIHI ❤️"
+];
+
+let idx = 0;
+setInterval(() => {
+    idx = (idx + 1) % reasons.length;
+    document.getElementById("reasonText").textContent = reasons[idx];
+}, 2000);
+
+// HEART RAIN
+function makeHearts() {
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.textContent = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (22 + Math.random() * 15) + "px";
+
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+    }
+}
+</script>
+</html>
